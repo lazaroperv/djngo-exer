@@ -14,7 +14,7 @@
             {% csrf_token %} 
             {{form}}
             <input type="submit" value="Login">
-            <a href="../Pages/register_user.html2">¿No tienes cuenta? !Registrate¡</a>
+            <a href="{% url 'Register_user' %}">¿No tienes cuenta? !Registrate¡</a>
         </form>
     </div>
 </body>

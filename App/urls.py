@@ -10,4 +10,5 @@ urlpatterns = [
     path('modificar/<int:codigo>/', modificar_producto, name='modificar'),  # Modificar producto
     path('eliminar/<int:codigo>/', eliminar_producto, name='eliminar'),  # Eliminar producto
     path('logouts/', salir, name='logouts'),  # Cerrar sesión
+    path('Register_user/', Register_user,name="Register_user"),
 ]

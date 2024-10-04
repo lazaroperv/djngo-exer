@@ -1,2 +1,11 @@
 {% extends 'index.html' %}
 {% load static %}
+{% block cuerpo %}
+    <form method="post">
+        <h1>Registrate</h1>
+        {% csrf_token %} 
+        {{form}}
+        <input type="submit" name="" id="" value="Registrarse">
+    </form>
+
+{% endblock %}

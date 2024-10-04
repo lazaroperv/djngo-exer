@@ -30,7 +30,7 @@ def ver_productos(request):
 @permission_required('App.add_producto')
 def agregar_producto(request):
     data = {
-        'form': NuevoProducto()  # Formulario para añadir un nuevo producto
+            'form': NuevoProducto()  # Formulario para añadir un nuevo producto
     }
     if request.method == 'POST':
         query = NuevoProducto(data=request.POST, files=request.FILES)
@@ -39,7 +39,7 @@ def agregar_producto(request):
             data['mensaje'] = "Producto agregado con éxito"
         else:
             data['form'] = NuevoProducto()  # Reinicia el formulario si hay errores
-    return render(request, 'Pages/agregar.html', data)
+    return render(request, 'Pages/agregar.html', data) 
 
 # Modificar un producto existente
 @permission_required('App.change_producto')
@@ -70,4 +70,14 @@ def salir(request):
     return redirect(to='inicio')  # Redirige a la página de inicio
 
 def Register_user(request):
-    
+    data ={
+        'form': NewUser()  # Formulario para añadir un nuevo producto
+    }
+    if request.method == 'POST':
+        query = NewUser(data=request.POST, files=request.FILES)
+        if query.is_valid():
+                query.save()
+                data['mensaje'] = "se ha registrado correctamente"
+        else:
+                data['form'] = NewUser()  # Reinicia el formulario si hay errores
+    return render(request, 'Pages/register_user.html', data)
