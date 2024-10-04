@@ -1,12 +1,14 @@
 from django.db import models
 
-# Create your models here.
-class Personajes(models.Model):
-    Codigo=models.AutoField(primary_key=True)
-    Nombre=models.TextField(max_length=30)
-    Casa=models.TextField(max_length=15)
-    Hechizo=models.TextField(max_length=20)
-    Imagen=models.ImageField(upload_to="Personajes",null=True)
+class Producto(models.Model):
+    codigo = models.AutoField(primary_key=True)  
+    nombre = models.CharField(max_length=100) 
+    categoria = models.CharField(max_length=50)  
+    descripcion = models.TextField()  
+    precio = models.DecimalField(max_digits=10, decimal_places=2)  
+    stock = models.IntegerField() 
+    imagen = models.ImageField(upload_to="productos", null=True, blank=True) 
 
-    def __int__(self):
-        self.Codigo
+    def __str__(self):
+        return f"{self.nombre} - {self.categoria}"
+

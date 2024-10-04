@@ -1,9 +1,9 @@
-#--->Importamos 'FORMS'
+#---> Importamos 'FORMS'
 from django import forms
 #---> Importamos los Modelos/Tablas
-from .models import *
+from .models import Producto
 
-class NuevoPersonaje(forms.ModelForm):
+class NuevoProducto(forms.ModelForm):
     class Meta:
-        model=Personajes
-        fields='__all__'
+        model = Producto  # Usamos el modelo Producto en lugar de Personaje
+        fields = '__all__'  # Se incluyen todos los campos del modelo Producto

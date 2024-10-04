@@ -1,13 +1,13 @@
 from django.urls import path
-#-->Importamos las Vistas para las URL
+#--> Importamos las Vistas para las URL
 from .views import *
 
 urlpatterns = [
-    #-->URL, FUNCION, NOMBRE PARA HTML
-    path('',Home,name='inicio'),
-    path('agregar/',Agregar,name='agregar'),
-    path('visualizar/',ver_Personajes,name='visualizar'),
-    path('modificar/<Codigo>/',Modificar_Personajes,name='modificar'),
-    path('eliminar/<Codigo>/',Eliminar_Personajes,name='eliminar'),
-    path('logouts/',salir,name='logouts'),
+    #--> URL, FUNCIÓN, NOMBRE PARA HTML
+    path('', Home, name='inicio'),  # Página de inicio
+    path('agregar/', agregar_producto, name='agregar'),  # Agregar producto
+    path('visualizar/', ver_productos, name='visualizar'),  # Visualizar productos
+    path('modificar/<int:codigo>/', modificar_producto, name='modificar'),  # Modificar producto
+    path('eliminar/<int:codigo>/', eliminar_producto, name='eliminar'),  # Eliminar producto
+    path('logouts/', salir, name='logouts'),  # Cerrar sesión
 ]
