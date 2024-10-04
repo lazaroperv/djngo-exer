@@ -94,3 +94,33 @@ footer a {
 footer a:hover {
     color: #ccc;
 }
+.contenedor_contacto {
+    background-color: #f8f9fa; /* Fondo claro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar texto */
+}
+
+.informacion_contacto p {
+    font-size: 1.1rem; /* Tamaño de fuente más grande */
+    margin: 10px 0; /* Espaciado entre párrafos */
+}
+
+.contenedor_nosotros {
+    background-color: #e9ecef; /* Fondo ligeramente más oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+.contenedor_nosotros h1 {
+    font-size: 2rem; /* Tamaño de fuente para el título */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.contenedor_nosotros p {
+    line-height: 1.6; /* Mejora la legibilidad */
+    margin-bottom: 10px; /* Espaciado inferior */
+}

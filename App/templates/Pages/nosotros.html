@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block intermedio %}
+    <img src="{% static 'img/Intermedio/intermedio_gif.gif' %}" alt="Carrousel" class="principal_intermedio">
+{% endblock %}
+
+{% block cuerpo %}
+<div class="contenedor_contacto">
+    <h1>Contacto</h1>
+    <div class="informacion_contacto">
+        <p><strong>Teléfono:</strong> +54 11 1234 5678</p>
+        <p><strong>Email:</strong> contacto@ferreteria.com</p>
+        <p><strong>Dirección:</strong> Av. Siempre Viva 1234, Buenos Aires, Argentina</p>
+    </div>
+</div>
+
+<div class="contenedor_nosotros mt-5">
+    <h1>Nosotros</h1>
+    <p>
+        En <strong>Ferretería XYZ</strong>, somos un equipo apasionado por ofrecer las mejores herramientas y productos de calidad para satisfacer todas tus necesidades. Con más de 10 años de experiencia en el mercado, nos especializamos en brindar soluciones para profesionales y aficionados del bricolaje.
+    </p>
+    <p>
+        Nuestro compromiso es ofrecer un servicio excepcional y productos de alta calidad a precios competitivos. Ya sea que necesites herramientas, materiales de construcción o asesoramiento experto, estamos aquí para ayudarte.
+    </p>
+    <p>
+        ¡Visítanos y descubre la amplia variedad de productos que tenemos para ti!
+    </p>
+</div>
+
+{% endblock %}

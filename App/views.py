@@ -18,6 +18,9 @@ def Home(request):
 def contacto(request):
     return render(request, 'Pages/contacto.html')
 
+def nosotros(request):
+    return render(request, 'Pages/nosotros.html')
+
 # Cerrar sesión
 def salir(request):
     logout(request)  # Cierra sesión
