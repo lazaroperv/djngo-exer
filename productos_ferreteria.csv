@@ -1,0 +1,11 @@
+nombre,categoria,descripcion,precio,stock,imagen
+Martillo,Ferretería,Martillo de acero con mango de madera,12.99,100,martillo.jpg
+Destornillador,Ferretería,Set de destornilladores de diferentes tamaños,9.99,150,destornillador.jpg
+Taladro,Ferretería,Taladro eléctrico con percusión,99.99,30,taladro.jpg
+Sierra,Ferretería,Sierra circular de 7 1/4 pulgadas,89.50,20,sierra.jpg
+Cinta métrica,Ferretería,Cinta métrica de 5 metros,7.50,200,cinta_metrica.jpg
+Llave inglesa,Ferretería,LLave inglesa ajustable de 12 pulgadas,15.00,75,llave_inglesa.jpg
+Gafas de seguridad,Ferretería,Gafas de seguridad antiempañantes,8.25,120,gafas_seguridad.jpg
+Guantes de trabajo,Ferretería,Guantes de cuero para trabajos pesados,10.50,80,guantes_trabajo.jpg
+Nivel de burbuja,Ferretería,Nivel de burbuja de 24 pulgadas,14.75,60,nivel_burbuja.jpg
+Pala,Ferretería,Pala de acero con mango de fibra de vidrio,25.00,40,pala.jpg
