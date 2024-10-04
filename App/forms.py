@@ -1,7 +1,7 @@
 #---> Importamos 'FORMS'
 from django import forms
 #---> Importamos los Modelos/Tablas
-from .models import Producto,users
+from .models import Producto, Users
 
 class NuevoProducto(forms.ModelForm):
     class Meta:
@@ -10,5 +10,5 @@ class NuevoProducto(forms.ModelForm):
         
 class NewUser(forms.ModelForm):
     class Meta:
-        model = users
+        model = Users
         fields = '__all__'

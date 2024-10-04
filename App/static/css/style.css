@@ -310,3 +310,37 @@ footer img {
 
 
   /* -----> Configuración del Sector Modificar <----- */
+  .compra-confirmada {
+    text-align: center;
+    color: green; /* Cambia el color según tu preferencia */
+    font-size: 2rem; /* Tamaño del texto */
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.mensaje-exito {
+    text-align: center;
+    font-size: 1.25rem; /* Tamaño del texto */
+    margin-bottom: 0.5rem; /* Espaciado inferior */
+}
+
+.precio-total {
+    text-align: center;
+    font-size: 1.25rem; /* Tamaño del texto */
+    font-weight: bold; /* Resaltar el precio */
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.volver-inicio {
+    display: block;
+    text-align: center; /* Centrar el enlace */
+    padding: 10px 20px; /* Espaciado del botón */
+    background-color: #007bff; /* Color de fondo (Bootstrap primary) */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.volver-inicio:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}

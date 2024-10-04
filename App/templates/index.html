@@ -41,26 +41,32 @@
                 for -- Ciclo por Conteo
                 Desde el Primer Elemento hasta el Ultimo elemento
             -->
-<div class="row">
-  {% for i in productos %}
-    <div class="col-md-4">
-      <div class="card overflow-auto" style="width: 18rem; height: 30rem;">
-        <!-- Pasamos la Ruta de la Imagen Registrada -->
-        <img src="{{ i.imagen.url }}" class="card-img-top" alt="Imagen BD" style="height: 15rem;">
-        <div class="card-body">
-          <h4 class="card-title">Nombre: {{i.nombre}}</h4>
-          <h5 class="card-title">Categoria: {{i.categoria}}</h5>
-          <p class="card-text text-wrap" style="max-height: 100px; overflow: auto;">Descripcion: {{i.descripcion}}</p>
-          <p class="card-text text-nowrap">Precio: {{i.precio}}</p>
-          {% if user.is_superuser %}
-          <p class="card-text text-nowrap">Stock: {{i.stock}}</p> 
-          {% endif %} 
-          <input type="submit" value="comprar" class="btn btn-primary">  
-        </div>
-      </div>
-      
-    </div>
-  {% endfor %}
+            <div class="row">
+              {% for i in productos %}
+              <div class="col-md-4">
+                <div class="card overflow-auto" style="width: 18rem; height: 30rem;">
+                  <img src="{{ i.imagen.url }}" class="card-img-top" alt="Imagen BD" style="height: 15rem;">
+                  <div class="card-body">
+                    <h4 class="card-title">Nombre: {{ i.nombre }}</h4>
+                    <h5 class="card-title">Categoria: {{ i.categoria }}</h5>
+                    <p class="card-text text-wrap" style="max-height: 100px; overflow: auto;">Descripcion: {{ i.descripcion }}</p>
+                    <p class="card-text text-nowrap">Precio: {{ i.precio }}</p>
+                    {% if user.is_superuser %}
+                    <p class="card-text text-nowrap">Stock: {{ i.stock }}</p>
+                    {% endif %}
+            
+                    <!-- Formulario para realizar la compra -->
+                    <form action="{% url 'comprar' producto_id=i.codigo %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Comprar" class="btn btn-primary">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            
+
   
 </div>
         </div>

@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+    {% load static %}
+
+    {% block intermedio %}
+        <img src="{% static 'img/Intermedio/intermedio_gif.gif' %}" alt="Carrousel" class="principal_intermedio">
+    {% endblock %}
+
+    {% block cuerpo %}
+    <h1 class="compra-confirmada">Compra confirmada</h1>
+    <p class="mensaje-exito">Has comprado <strong>{{ producto.nombre }}</strong> con éxito.</p>
+    <p class="precio-total">Precio total: <strong>${{ producto.precio }}</strong></p>
+    <a href="{% url 'inicio' %}" class="volver-inicio">Volver al inicio</a>
+{% endblock %}
+
+
+
+
+
+
+
