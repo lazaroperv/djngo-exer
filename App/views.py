@@ -15,6 +15,8 @@ def Home(request):
     }
     return render(request, 'index.html', data)
 
+def contacto(request):
+    return render(request,'Pages/contacto.html')
 # Ver todos los productos disponibles en la ferretería
 def ver_productos(request):
     buscar = Producto.objects.all()  # Traemos todos los productos
@@ -80,7 +82,6 @@ def Register_user(request):
             data['form'] = query  # Mantener el formulario con errores
     return render(request, 'Pages/register_user.html', data)
 
-@login_required
 def comprar_producto(request, producto_id):
     producto = get_object_or_404(Producto, codigo=producto_id)  # Busca el producto por código
 

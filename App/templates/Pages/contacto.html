@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block intermedio %}
+    <img src="{% static 'img/Intermedio/intermedio_gif.gif' %}" alt="Carrousel" class="principal_intermedio">
+{% endblock %}
+
+{% block cuerpo %}
+<div class="contenedor_contacto">
+    <h1>Contacto</h1>
+    <div class="informacion_contacto">
+        <p><strong>Teléfono:</strong> +54 11 1234 5678</p>
+        <p><strong>Email:</strong> contacto@ferreteria.com</p>
+        <p><strong>Dirección:</strong> Av. Siempre Viva 1234, Buenos Aires, Argentina</p>
+    </div>
+</div>
+{% endblock %}

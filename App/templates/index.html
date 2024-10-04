@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 {% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferreteria</title>
+    <title>Ferretería</title>
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Hoja de Estilos de Bootstrap -->
@@ -14,70 +14,65 @@
 </head>
 
 <body>
-    <header class="encabezado">
-       <a href="{% url 'inicio' %}"><img src="{% static 'img/index/logo.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
-        <nav class="menu_selectivo">
-          {% if user.is_superuser %}
-            <a href="{% url 'agregar' %}">Agregar</a>
-            <!-- Nombre de URL-- visualizar -->
-          {% endif %}
-            <a href="">Nosotros</a>
-            <a href="" id="contacto_btn">Contacto</a>
-
-            {% if user.is_authenticated %}
-            <a href="{% url 'logouts' %}" id="contacto_btl">Logout</a>
-            {% else %}
-            <a href="{% url 'login' %}" id="contacto_btl">login</a>
-            {% endif %}
-
-        </nav>
-    </header>
-    <main class="contenedor_general">
-        {% block cuerpo %}
-        <div class="contenedor_visualizar">
-            <!-- 
-                i-- Variable para el conteo
-                forms -- Palabra enviada desde "Data" para Traer los Datos
-                for -- Ciclo por Conteo
-                Desde el Primer Elemento hasta el Ultimo elemento
-            -->
-            <div class="row">
-              {% for i in productos %}
-              <div class="col-md-4">
-                <div class="card overflow-auto" style="width: 18rem; height: 30rem;">
-                  <img src="{{ i.imagen.url }}" class="card-img-top" alt="Imagen BD" style="height: 15rem;">
-                  <div class="card-body">
-                    <h4 class="card-title">Nombre: {{ i.nombre }}</h4>
-                    <h5 class="card-title">Categoria: {{ i.categoria }}</h5>
-                    <p class="card-text text-wrap" style="max-height: 100px; overflow: auto;">Descripcion: {{ i.descripcion }}</p>
-                    <p class="card-text text-nowrap">Precio: {{ i.precio }}</p>
-                    {% if user.is_superuser %}
-                    <p class="card-text text-nowrap">Stock: {{ i.stock }}</p>
-                    {% endif %}
-            
-                    <!-- Formulario para realizar la compra -->
-                    <form action="{% url 'comprar' producto_id=i.codigo %}" method="POST">
-                        {% csrf_token %}
-                        <input type="submit" value="Comprar" class="btn btn-primary">
-                    </form>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-            
-
-  
-</div>
+    <header class="bg-light p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="{% url 'inicio' %}"><img src="{% static 'img/logo.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
+            <nav class="menu_selectivo">
+                {% if user.is_superuser %}
+                {% endif %}
+                <a href="#" class="btn btn-link">Nosotros</a>
+                <a href="{% url 'contacto' %}" class="btn btn-link" id="contacto_btn">Contacto</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logouts' %}" class="btn btn-danger">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                {% endif %}
+            </nav>
         </div>
-    {% endblock %}
+    </header>
+
+    <main class="contenedor_general mt-4">
+        {% block cuerpo %}
+        <div class="container">
+            <h2 class="text-center">Productos de Ferretería</h2>
+            <div class="row">
+                {% for i in productos %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ i.imagen.url }}" class="card-img-top" alt="Imagen de {{ i.nombre }}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.nombre }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Categoría: {{ i.categoria }}</h6>
+                            <p class="card-text text-truncate" style="max-height: 60px;">Descripción: {{ i.descripcion }}</p>
+                            <p class="card-text fw-bold">Precio: ${{ i.precio }}</p>
+                            {% if user.is_superuser %}
+                                <p class="card-text">Stock: {{ i.stock }}</p>
+                            {% endif %}
+                            <form action="{% url 'comprar' producto_id=i.codigo %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Comprar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endblock %}
     </main>
-    <footer>
-        <img src="{% static 'img/index/ig.png' %}" alt="">
-        <img src="{% static 'img/index/facebook.png' %}" alt="">
-        <img src="{% static 'img/index/whatsapp.png' %}" alt="">
-        <img src="{% static 'img/index/gorjeo.png' %}" alt="">
+
+    <footer class="bg-light text-center py-3">
+        <div class="container">
+            <p>Síguenos en nuestras redes sociales:</p>
+            <div>
+                <img src="{% static 'img/index/ig.png' %}" alt="Instagram" class="social-icon">
+                <img src="{% static 'img/index/facebook.png' %}" alt="Facebook" class="social-icon">
+                <img src="{% static 'img/index/whatsapp.png' %}" alt="WhatsApp" class="social-icon">
+                <img src="{% static 'img/index/gorjeo.png' %}" alt="Twitter" class="social-icon">
+            </div>
+        </div>
     </footer>
+
     <!-- Hoja de Acciones de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

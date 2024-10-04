@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}
+
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+{% block cuerpo %}
     <div class="contendor_login">
-        <img src="" alt="">
         <form action="" method="post">
             <h1>Login</h1>
             {% csrf_token %} 
-            {{form}}
-            <input type="submit" value="Login">
-            <a href="{% url 'Register_user' %}">¿No tienes cuenta? !Registrate¡</a>
+            {{ form }}
+            <input type="submit" value="Login" class="btn-login">
+            <a href="{% url 'Register_user' %}" class="link-register">¿No tienes cuenta? ¡Regístrate!</a>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
