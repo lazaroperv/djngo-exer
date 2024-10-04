@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 # Página principal de la ferretería, mostrando los últimos 3 productos añadidos
 def Home(request):
-    buscar = Producto.objects.all().order_by('-codigo')[:3]  # Traemos los últimos 3 productos
+    buscar = Producto.objects.all().order_by('-codigo')[:10]  # Traemos los últimos 3 productos
     data = {
         'productos': buscar
     }

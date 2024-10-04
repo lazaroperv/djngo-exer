@@ -12,11 +12,11 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Proyecto.settings')
 django.setup()
 
 from App.models import Producto
-ruta = '/home/aguero/djngo-exer/productos_ferreteria.csv'
+ruta = '/home/lazaro/Desktop/djngo-exer/productos_ferreteria.csv'
 #acaes la ruta donde el archivo .csv que en este caso es "productos_ferreteria.csv" 
 #asi que anda a donde esta la carpeta "djngo-exer" y en la consola pone "pwd" y luego
 #te va a dar una ruta de donde esta esa carpeta osea "djngo-exer" y ahi pones el .csv
-#entonces quedaria tu/ruta/djngo-exer/productos_ferreteria.csv
+#entonces quedaria tu/ruta/djngo-exer/productos_ferreteria.cs                               v
 
 if os.path.exists(ruta):
     with open(ruta, newline='', encoding='utf-8') as csvfile:

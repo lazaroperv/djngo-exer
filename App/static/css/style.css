@@ -247,8 +247,14 @@ footer img {
 
 .card{
     margin-left: 15px;  
+    justify-content: space-between;
+    margin: 5px;
 }
+.card-img-top{
+    width: 100px;
+    height: 100px;
 
+}
 .card-title{
     font-size: 18px;
 }
@@ -270,4 +276,33 @@ footer img {
     margin-bottom: 25px;
 }
 
-/* -----> Configuración del Sector Modificar <----- */
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .col-md-4 {
+    flex-basis: 25%;
+    margin: 10px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+
+
+  /* -----> Configuración del Sector Modificar <----- */

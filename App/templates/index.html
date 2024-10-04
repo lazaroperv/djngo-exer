@@ -31,89 +31,8 @@
 
         </nav>
     </header>
-    <section class="intermedio">
-        {% block intermedio %}
-        <img src="{% static 'img/Intermedio/intermedio_gif.gif' %}" alt="Carrousel" class="principal_intermedio">
-        {% endblock %}
-    </section>
     <main class="contenedor_general">
         {% block cuerpo %}
-        <div class="contenedor_index"> 
-            <img src="{% static 'img/index/Hogwarts.png' %}" alt="">
-            <article class="artitulo">
-                <h2>Colegio Hogwarts de Magia y Hechicería</h2>
-                <p>Es un internado mágico ubicado en Escocia. El castillo se ubica en unas montañas cercanas a un
-                    lago. La localización exacta no ha sido descubierta ya que está escondida por los más poderosos
-                    encantamientos posibles. Sin embargo, de acuerdo con Hermione Granger, no está muy lejos de
-                    Dufftown. Los encantamientos que protegen al castillo son clasificados como encantamientos
-                    anti-aparición y encantos repelentes de Muggles (como el repello muggletum), que lo hacen que ellos
-                    vean unas ruinas antiguas con un letrero que dice "Peligro, prohibido el paso" en lugar del
-                    castillo. Estos encantamientos pueden ser levantados por el Director. La mayoría de los dispositivos
-                    electrónicos no funcionan en los terrenos de Hogwarts. En un momento dado, Hogwarts llegó a
-                    tener 1000 estudiantes.</p>
-                <h4>Perspectiva general</h4>
-                <p>Hogwarts es una de las tres escuelas más importantes de Europa, que entrena a personas con
-                    habilidades mágicas para que se conviertan en magos y brujas cualificados. Su estatus no es muy
-                    discutido en las novelas de Harry Potter, pero es conocida como un internado de secundaria que
-                    aborda a niños de 11 a 17 años.</p>
-        </div>
-
-        <div class="tarjetas_index">
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Gryffindor.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Gryffindor es una de las cuatro casas del Colegio Hogwarts de Magia y Hechicería, fundada por
-                        Godric Gryffindor. Su animal emblemático es el león y sus colores son el rojo escarlata y el
-                        dorado. Minerva McGonagall es la más reciente jefa de la casa.
-                    </div>
-                </div>
-            </div>
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Hufflepuff.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Hufflepuffes una de las cuatro casas del Colegio Hogwarts de Magia y
-                        Hechicería. Su fundadora es la bruja medieval Helga Hufflepuff. La jefa de la casa es Pomona
-                        Sprout.El fraile gordo es el fantasma de la casa
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Ravenclaw.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Ravenclawes una de las cuatro casas que componen el Colegio Hogwarts de Magia
-                        y Hechicería, fundada por Rowena Ravenclaw, quién tuvo una hija, cuyo fantasma es la Dama
-                        Gris la cual fue asesinada por el Barón Sanguinario.
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Slytherin.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Slytherin es una de las cuatro casas del Colegio Hogwarts de Magia
-                        y Hechicería, fundada por Salazar Slytherin. Al establecer la casa, Salazar instruyó al Sombrero
-                        Seleccionador para que seleccionara a los estudiantes que tenían las características
-                        particulares que él valoraba más
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <h1 class="subtitulo_index">Ultimos Personajes</h1>
         <div class="contenedor_visualizar">
             <!-- 
                 i-- Variable para el conteo
@@ -121,26 +40,29 @@
                 for -- Ciclo por Conteo
                 Desde el Primer Elemento hasta el Ultimo elemento
             -->
-            {% for i in forms %}
-            <div class="card" style="width: 18rem;">
-                <!-- Pasamos la Ruta de la Imagen Registrada -->
-                <img src="{{i.Imagen.url}}" class="card-img-top" alt="Imagen BD">
-                <div class="card-body">
-                  <h4 class="card-title">Nombre: {{i.Nombre}}</h4>
-                  <h5 class="card-title">Casa: {{i.Casa}}</h5>
-                  <p class="card-text">Hechizo: {{i.Hechizo}}</p>
-                  {% if perms.App.change_personajes %}
-                  <a href="{% url 'modificar' i.Codigo %}" class="btn btn-warning">Editar</a>
-                  {% endif %}
-                  {% if perms.App.delete_personajes %}
-                  <a href="{% url 'eliminar' i.Codigo %}" class="btn btn-danger">Eliminar</a>
-                  {% endif %}
-                </div>
-              </div>
-              {% endfor %}
+<div class="row">
+  {% for i in productos %}
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem; height: 30rem;">
+        <!-- Pasamos la Ruta de la Imagen Registrada -->
+        <img src="{{ i.Imagen.url }}" class="card-img-top" alt="Imagen BD" style="height: 15rem;">
+        <div class="card-body">
+          <h4 class="card-title">Nombre: {{i.nombre}}</h4>
+          <h5 class="card-title">Casa: {{i.categoria}}</h5>
+          <p class="card-text">Descripcion: {{i.descripcion}}</p>
+          <p class="card-text">Precio: {{i.precio}}</p>
+          <p class="card-text">Stock: {{i.stock}}</p> 
+          <p class="card-text">Hechizo: {{i.descripcion}}</p>     
         </div>
-
-        {% endblock %}
+      </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}
+      </div><div class="row">
+    {% endif %}
+  {% endfor %}
+</div>
+        </div>
+    {% endblock %}
     </main>
     <footer>
         <img src="{% static 'img/index/ig.png' %}" alt="">

@@ -23,6 +23,7 @@
                   <h4 class="card-title">Nombre: {{i.Nombre}}</h4>
                   <h5 class="card-title">Casa: {{i.Casa}}</h5>
                   <p class="card-text">Hechizo: {{i.Hechizo}}</p>
+                  
                   {% if perms.App.change_personajes %}
                   <a href="{% url 'modificar' i.Codigo %}" class="btn btn-warning">Editar</a>
                   {% endif %}
