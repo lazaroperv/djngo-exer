@@ -68,3 +68,6 @@ def eliminar_producto(request, codigo):
 def salir(request):
     logout(request)  # Cierra sesión
     return redirect(to='inicio')  # Redirige a la página de inicio
+
+def Register_user(request):
+    

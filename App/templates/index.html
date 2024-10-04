@@ -17,9 +17,10 @@
     <header class="encabezado">
        <a href="{% url 'inicio' %}"><img src="{% static 'img/index/logo.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
         <nav class="menu_selectivo">
+          {% if user.is_superuser %}
             <a href="{% url 'agregar' %}">Agregar</a>
             <!-- Nombre de URL-- visualizar -->
-            <a href="{% url 'visualizar' %}">Visualizar</a>
+          {% endif %}
             <a href="">Nosotros</a>
             <a href="" id="contacto_btn">Contacto</a>
 
@@ -43,23 +44,24 @@
 <div class="row">
   {% for i in productos %}
     <div class="col-md-4">
-      <div class="card" style="width: 18rem; height: 30rem;">
+      <div class="card overflow-auto" style="width: 18rem; height: 30rem;">
         <!-- Pasamos la Ruta de la Imagen Registrada -->
-        <img src="{{ i.Imagen.url }}" class="card-img-top" alt="Imagen BD" style="height: 15rem;">
+        <img src="{{ i.imagen.url }}" class="card-img-top" alt="Imagen BD" style="height: 15rem;">
         <div class="card-body">
           <h4 class="card-title">Nombre: {{i.nombre}}</h4>
-          <h5 class="card-title">Casa: {{i.categoria}}</h5>
-          <p class="card-text">Descripcion: {{i.descripcion}}</p>
-          <p class="card-text">Precio: {{i.precio}}</p>
-          <p class="card-text">Stock: {{i.stock}}</p> 
-          <p class="card-text">Hechizo: {{i.descripcion}}</p>     
+          <h5 class="card-title">Categoria: {{i.categoria}}</h5>
+          <p class="card-text text-wrap" style="max-height: 100px; overflow: auto;">Descripcion: {{i.descripcion}}</p>
+          <p class="card-text text-nowrap">Precio: {{i.precio}}</p>
+          {% if user.is_superuser %}
+          <p class="card-text text-nowrap">Stock: {{i.stock}}</p> 
+          {% endif %} 
+          <input type="submit" value="comprar" class="btn btn-primary">  
         </div>
       </div>
+      
     </div>
-    {% if forloop.counter|divisibleby:3 %}
-      </div><div class="row">
-    {% endif %}
   {% endfor %}
+  
 </div>
         </div>
     {% endblock %}

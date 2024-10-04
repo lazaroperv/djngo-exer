@@ -49,15 +49,14 @@
     color: #FCFCFC;
 }
 
-#contacto_btn {
+/* #contacto_btn { */
     /* Relleno */
-    padding: 10px;
+    /* padding: 10px; */
     /* Redondear las Esquinas */
-    border-radius: 10px;
+    /* border-radius: 10px; */
     /* Color de Fondo */
-    background: #395090;
-    color: #FCFCFC;
-}
+    /* color: #343434; 
+    }*/
 
 .contenedor_general {
     padding: 20px;
@@ -282,6 +281,8 @@ footer img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
+
   }
   
   .col-md-4 {
@@ -293,6 +294,9 @@ footer img {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 600px;
+    margin: 20px;
+    
   }
   
   .card-img-top {
