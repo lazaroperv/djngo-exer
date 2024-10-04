@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+    {% load static %}
+
+    {% block intermedio %}
+        <img src="{% static 'img/Intermedio/intermedio_visualizar.gif' %}" alt="Carrousel" class="principal_intermedio">
+    {% endblock %}
+
+    <!-- Main -->
+    {% block cuerpo %}
+        <div class="contenedor_visualizar">
+            <!-- 
+                i-- Variable para el conteo
+                forms -- Palabra enviada desde "Data" para Traer los Datos
+                for -- Ciclo por Conteo
+                Desde el Primer Elemento hasta el Ultimo elemento
+            -->
+            {% for i in forms %}
+            <div class="card" style="width: 18rem;">
+                <!-- Pasamos la Ruta de la Imagen Registrada -->
+                <img src="{{i.Imagen.url}}" class="card-img-top" alt="Imagen BD">
+                <div class="card-body">
+                  <h4 class="card-title">Nombre: {{i.Nombre}}</h4>
+                  <h5 class="card-title">Casa: {{i.Casa}}</h5>
+                  <p class="card-text">Hechizo: {{i.Hechizo}}</p>
+                  {% if perms.App.change_personajes %}
+                  <a href="{% url 'modificar' i.Codigo %}" class="btn btn-warning">Editar</a>
+                  {% endif %}
+                  {% if perms.App.delete_personajes %}
+                  <a href="{% url 'eliminar' i.Codigo %}" class="btn btn-danger">Eliminar</a>
+                  {% endif %}
+                </div>
+              </div>
+              {% endfor %}
+        </div>
+    {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+    {% load static %}
+
+    {% block intermedio %}
+        <img src="{% static 'img/Intermedio/intermedio_gif.gif' %}" alt="Carrousel" class="principal_intermedio">
+    {% endblock %}
+
+    {% block cuerpo %}
+    <div class="contendor_agregar">
+
+        <img src="{% static 'img/Agregar/img_agregar_forms.gif' %}" alt="">
+
+        <form action="" method="post" enctype="multipart/form-data">
+            <h1>Complete los Datos</h1>
+                {{forms}}
+                {% csrf_token %} 
+                <input type="submit" value="Modificar" class="btn btn-warning">
+                <a href=""><input type="submit" value="Ver Producto" class="btn btn-secondary"></a>
+                <p class="maldonado">{{mensaje}}</p>
+            </form>
+    </div>
+{% endblock %}
